@@ -17,4 +17,5 @@ func main() {
 		panic(err)
 	}
 	solution.Part1(files[0])
+    solution.Part2(files[1])
 }
