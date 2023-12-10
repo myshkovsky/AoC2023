@@ -10,11 +10,11 @@ import (
 
 func Part1(file *os.File) {
 	s := bufio.NewScanner(file)
-    times := []int{}
-    records := []int{}
+	times := []int{}
+	records := []int{}
 	re := regexp.MustCompile(`[0-9]+`)
-    pass := 0
-    for s.Scan() {
+	pass := 0
+	for s.Scan() {
 		if pass == 0 {
 			r := re.FindAllString(s.Text(), -1)
 			for _, v := range r {
@@ -34,9 +34,9 @@ func Part1(file *os.File) {
 				records = append(records, n)
 			}
 		}
-        pass++
+		pass++
 	}
-    waysToWin := []int{}
+	waysToWin := []int{}
 	for k, time := range times {
 		record := records[k]
 		wins := 0
@@ -49,9 +49,9 @@ func Part1(file *os.File) {
 		}
 		waysToWin = append(waysToWin, wins)
 	}
-    sum := 1
-    for _, v := range waysToWin {
-        sum *= v
-    }
-    fmt.Println(sum)
+	sum := 1
+	for _, v := range waysToWin {
+		sum *= v
+	}
+	fmt.Println(sum)
 }
